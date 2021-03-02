@@ -109,8 +109,6 @@ public class Controller {
         int endHrTimeValue = Integer.parseInt(endHrTime);
         int endMinsTimeValue = Integer.parseInt(endMinuteTime);
 
-        System.out.println(startHrTimeValue);
-        System.out.println(endHrTimeValue);
         int startToBedTime = (BED_TIME - startHrTimeValue) * START_TO_BED_TIME_PAY_RATE;
         startToBedTimeInputResult.setText("$" + startToBedTime);
 
