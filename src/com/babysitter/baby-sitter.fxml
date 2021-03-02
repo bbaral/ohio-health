@@ -33,8 +33,13 @@
         </GridPane.margin>
     </Label>
 
-    <Label text="Start Time : " GridPane.columnIndex="0" GridPane.rowIndex="1" ></Label>
-    <Label text="Hours:" GridPane.columnIndex="1" GridPane.rowIndex="1" ></Label>
+    <Label text="Start Time : " GridPane.columnIndex="0" GridPane.rowIndex="1" >
+        <GridPane.margin>
+            <Insets right="0" />
+        </GridPane.margin>
+    </Label>
+    <Label text="Hours:" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="2" GridPane.rowSpan="1" >
+    </Label>
 
     <ComboBox fx:id="startTimeHourList" prefHeight="30" GridPane.columnIndex="2" GridPane.rowIndex="1">
         <items>
@@ -60,65 +65,6 @@
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="00"/>
-                <String fx:value="01"/>
-                <String fx:value="02"/>
-                <String fx:value="03"/>
-                <String fx:value="04"/>
-                <String fx:value="05"/>
-                <String fx:value="06"/>
-                <String fx:value="07"/>
-                <String fx:value="08"/>
-                <String fx:value="09"/>
-                <String fx:value="10"/>
-                <String fx:value="11"/>
-                <String fx:value="12"/>
-                <String fx:value="13"/>
-                <String fx:value="14"/>
-                <String fx:value="15"/>
-                <String fx:value="16"/>
-                <String fx:value="17"/>
-                <String fx:value="18"/>
-                <String fx:value="19"/>
-                <String fx:value="20"/>
-                <String fx:value="21"/>
-                <String fx:value="22"/>
-                <String fx:value="23"/>
-                <String fx:value="24"/>
-                <String fx:value="25"/>
-                <String fx:value="26"/>
-                <String fx:value="27"/>
-                <String fx:value="28"/>
-                <String fx:value="29"/>
-                <String fx:value="30"/>
-                <String fx:value="31"/>
-                <String fx:value="32"/>
-                <String fx:value="33"/>
-                <String fx:value="34"/>
-                <String fx:value="35"/>
-                <String fx:value="36"/>
-                <String fx:value="37"/>
-                <String fx:value="38"/>
-                <String fx:value="39"/>
-                <String fx:value="40"/>
-                <String fx:value="41"/>
-                <String fx:value="42"/>
-                <String fx:value="43"/>
-                <String fx:value="44"/>
-                <String fx:value="45"/>
-                <String fx:value="46"/>
-                <String fx:value="47"/>
-                <String fx:value="48"/>
-                <String fx:value="49"/>
-                <String fx:value="50"/>
-                <String fx:value="51"/>
-                <String fx:value="52"/>
-                <String fx:value="53"/>
-                <String fx:value="54"/>
-                <String fx:value="55"/>
-                <String fx:value="56"/>
-                <String fx:value="57"/>
-                <String fx:value="58"/>
-                <String fx:value="59"/>
             </FXCollections>
         </items>
     </ComboBox>
@@ -134,8 +80,9 @@
     </ComboBox>
 
     <Label text="End Time : " GridPane.columnIndex="0" GridPane.rowIndex="2" ></Label>
+    <Label text="Hours: " GridPane.columnIndex="1" GridPane.rowIndex="2" ></Label>
 
-    <ComboBox fx:id="endTimeHourList" prefHeight="30" GridPane.columnIndex="1" GridPane.rowIndex="2">
+    <ComboBox fx:id="endTimeHourList" prefHeight="30" GridPane.columnIndex="2" GridPane.rowIndex="2">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="1"/>
@@ -154,73 +101,17 @@
         </items>
     </ComboBox>
 
-    <ComboBox fx:id="endTimeMinuteList" prefHeight="30" GridPane.columnIndex="2" GridPane.rowIndex="2">
+    <Label text="Mins: " GridPane.columnIndex="3" GridPane.rowIndex="2" ></Label>
+
+    <ComboBox fx:id="endTimeMinuteList" prefHeight="30" GridPane.columnIndex="4" GridPane.rowIndex="2">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="00"/>
-                <String fx:value="01"/>
-                <String fx:value="02"/>
-                <String fx:value="03"/>
-                <String fx:value="04"/>
-                <String fx:value="05"/>
-                <String fx:value="06"/>
-                <String fx:value="07"/>
-                <String fx:value="08"/>
-                <String fx:value="09"/>
-                <String fx:value="10"/>
-                <String fx:value="11"/>
-                <String fx:value="12"/>
-                <String fx:value="13"/>
-                <String fx:value="14"/>
-                <String fx:value="15"/>
-                <String fx:value="16"/>
-                <String fx:value="17"/>
-                <String fx:value="18"/>
-                <String fx:value="19"/>
-                <String fx:value="20"/>
-                <String fx:value="21"/>
-                <String fx:value="22"/>
-                <String fx:value="23"/>
-                <String fx:value="24"/>
-                <String fx:value="25"/>
-                <String fx:value="26"/>
-                <String fx:value="27"/>
-                <String fx:value="28"/>
-                <String fx:value="29"/>
-                <String fx:value="30"/>
-                <String fx:value="31"/>
-                <String fx:value="32"/>
-                <String fx:value="33"/>
-                <String fx:value="34"/>
-                <String fx:value="35"/>
-                <String fx:value="36"/>
-                <String fx:value="37"/>
-                <String fx:value="38"/>
-                <String fx:value="39"/>
-                <String fx:value="40"/>
-                <String fx:value="41"/>
-                <String fx:value="42"/>
-                <String fx:value="43"/>
-                <String fx:value="44"/>
-                <String fx:value="45"/>
-                <String fx:value="46"/>
-                <String fx:value="47"/>
-                <String fx:value="48"/>
-                <String fx:value="49"/>
-                <String fx:value="50"/>
-                <String fx:value="51"/>
-                <String fx:value="52"/>
-                <String fx:value="53"/>
-                <String fx:value="54"/>
-                <String fx:value="55"/>
-                <String fx:value="56"/>
-                <String fx:value="57"/>
-                <String fx:value="58"/>
-                <String fx:value="59"/>
             </FXCollections>
         </items>
     </ComboBox>
-    <ComboBox fx:id="endTimeAmPmList"  GridPane.columnIndex="3" GridPane.rowIndex="2">
+    <Label text="AM/PM: " GridPane.columnIndex="5" GridPane.rowIndex="2" ></Label>
+    <ComboBox fx:id="endTimeAmPmList"  GridPane.columnIndex="6" GridPane.rowIndex="2">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="AM"/>
@@ -252,11 +143,11 @@
         </GridPane.margin>
     </Button>
 
-    <Label text="Start to bed time:" fx:id="startToBedTimeLabel" GridPane.columnIndex="0" GridPane.rowIndex="5"  ></Label>
+    <Label text="Start to bedtime:" fx:id="startToBedTimeLabel" GridPane.columnIndex="0" GridPane.rowIndex="5"  ></Label>
     <Label text=""  fx:id="startToBedTimeInputResult" GridPane.columnIndex="1" GridPane.rowIndex="5" ></Label>
-    <Label text="Bed-time to mid-night: " fx:id="bedTimeToMidnightLabel" GridPane.columnIndex="0" GridPane.rowIndex="6"></Label>
+    <Label text="Bedtime to 12AM:" fx:id="bedTimeToMidnightLabel" GridPane.columnIndex="0" GridPane.rowIndex="6"></Label>
     <Label text=""  fx:id="bedTimeToMidnightInputResult" GridPane.columnIndex="1" GridPane.rowIndex="6"></Label>
-    <Label text="Mid-night to shift-end: " fx:id="midnightToShiftEndLabel" GridPane.columnIndex="0" GridPane.rowIndex="7"></Label>
+    <Label text="12AM to end:" fx:id="midnightToShiftEndLabel" GridPane.columnIndex="0" GridPane.rowIndex="7"></Label>
     <Label text=""  fx:id="midnightToShiftEndInputResult" GridPane.columnIndex="1" GridPane.rowIndex="7"></Label>
     <Label text="Total:" fx:id="totalLabel" GridPane.columnIndex="0" GridPane.rowIndex="8"></Label>
     <Label text="" fx:id="totalResult" GridPane.columnIndex="1" GridPane.rowIndex="8"></Label>

@@ -7,11 +7,11 @@ import javafx.stage.Window;
 
 public class Controller {
 
-    private final int regularPayRate = 12;
-    private final int bedtimePayRate = 8;
-    private final int midnightPayRate = 16;
+    private final int START_TO_BED_TIME_PAY_RATE = 12;
+    private final int BED_TIME_TO_MIDNIGHT_PAY_RATE = 8;
+    private final int MID_NIGHT_TO_END_RATE = 16;
 
-    private final int bedTime = 9;
+    private final int BED_TIME = 9;
 
     @FXML
     private ComboBox<String> startTimeHourList;
@@ -38,7 +38,7 @@ public class Controller {
     private Button resetButton;
 
     @FXML
-    private Label result1, result2;
+    private Label startToBedTimeInputResult, bedTimeToMidnightInputResult, midnightToShiftEndInputResult, totalResult;
 
     public void handleSubmitButtonAction(ActionEvent actionEvent) {
         boolean checkStartTime = false;
@@ -89,16 +89,15 @@ public class Controller {
         int inputMins = Integer.parseInt(mins);
         if (ampm.equalsIgnoreCase("PM") && flag.equalsIgnoreCase("PM")) {
             if (inputHr < 5) {
-                DialogBox.showDialog(Alert.AlertType.ERROR, window, "Error!", "Your start entry should be 5PM or after!" + " Your start entry time: " + hr + ":" + mins + ampm);
+                DialogBox.showDialog(Alert.AlertType.ERROR, window, "Error!", "Your start entry should be 5PM or after!" + " You enter: " + hr + ":" + mins + ampm);
                 entryCheck = false;
             }
 
         } else if (ampm.equalsIgnoreCase("AM") && flag.equalsIgnoreCase("AM")) {
-            if (inputHr >= 4) {
-                if (inputMins > 0) {
-                    DialogBox.showDialog(Alert.AlertType.ERROR, window, "Error!", "Your leave entry should be before 4AM!" + " Your end entry time: " + hr + ":" + mins + ampm);
+            if (inputHr > 4) {
+
+                    DialogBox.showDialog(Alert.AlertType.ERROR, window, "Error!", "Your leave entry should be before 4AM!" + " You enter: " + hr + ":" + mins + ampm);
                     entryCheck = false;
-                }
             }
         }
         return entryCheck;
@@ -110,28 +109,35 @@ public class Controller {
         int endHrTimeValue = Integer.parseInt(endHrTime);
         int endMinsTimeValue = Integer.parseInt(endMinuteTime);
 
-        int startToBedTime = calculateTimeDifference(startHrTimeValue, startMinsTimeValue, endHrTimeValue, endMinsTimeValue);
-
-
-    }
-
-    private int calculateTimeDifference(int startHrTimeValue, int startMinsTimeValue, int endHrTimeValue, int endMinsTimeValue) {
         System.out.println(startHrTimeValue);
-        System.out.println(startMinsTimeValue);
         System.out.println(endHrTimeValue);
-        System.out.println(endMinsTimeValue);
-        return 1;
-    }
+        int startToBedTime = (BED_TIME - startHrTimeValue) * START_TO_BED_TIME_PAY_RATE;
+        startToBedTimeInputResult.setText("$" + startToBedTime);
 
+        int bedTimeToMidnight = (12 - BED_TIME) * BED_TIME_TO_MIDNIGHT_PAY_RATE;
+        bedTimeToMidnightInputResult.setText("$" + bedTimeToMidnight);
+
+        int midnightToShiftEnd = endHrTimeValue * MID_NIGHT_TO_END_RATE;
+        midnightToShiftEndInputResult.setText("$" + midnightToShiftEnd);
+
+        int total = startToBedTime + bedTimeToMidnight + midnightToShiftEnd;
+        totalResult.setText("$" + total);
+
+
+    }
 
     public void handleResetButtonAction(ActionEvent actionEvent) {
-        startTimeHourList.setValue("");
-        startTimeMinuteList.setValue("");
-        startTimeAmPmList.setValue("");
+        startTimeHourList.setValue(null);
+        startTimeMinuteList.setValue(null);
+        startTimeAmPmList.setValue(null);
 
-        endTimeHourList.setValue("");
-        endTimeMinuteList.setValue("");
-        endTimeAmPmList.setValue("");
+        endTimeHourList.setValue(null);
+        endTimeMinuteList.setValue(null);
+        endTimeAmPmList.setValue(null);
+        startToBedTimeInputResult.setText(null);
+        bedTimeToMidnightInputResult.setText(null);
+        midnightToShiftEndInputResult.setText(null);
+        totalResult.setText(null);
     }
 
 
